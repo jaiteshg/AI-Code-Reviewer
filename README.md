@@ -1,36 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 AI Code Reviewer & Bug Fixer
 
-## Getting Started
+An AI-powered developer tool that analyzes code, detects bugs, suggests improvements, and generates optimized code in real time.
 
-First, run the development server:
+🔗 **Live Demo:** https://your-vercel-link.vercel.app  
+📂 **GitHub Repo:** https://github.com/jaiteshg/AI-Code-Reviewer.git  
+
+---
+
+## 🧠 Features
+
+- 📝 Code Editor (Monaco Editor)
+- 🤖 AI Code Analysis (Groq LLM)
+- 🐞 Detects bugs in code
+- ✨ Suggests improvements
+- ⚡ Code Diff Viewer (before vs after)
+- 📋 Copy Fixed Code with one click
+- 🌙 Dark / Light Mode Toggle
+- 🎯 Clean and responsive UI
+
+---
+
+## 🖥️ Tech Stack
+
+- **Frontend:** Next.js, React, Tailwind CSS  
+- **Editor:** Monaco Editor  
+- **AI Integration:** Groq API (LLaMA models)  
+- **Diff Viewer:** react-diff-viewer-continued  
+
+---
+
+## 📸 Screenshots
+
+### 🔹 Editor + Analysis
+![Editor Screenshot](./screenshots/editor.png)
+
+### 🔹 Diff Viewer
+![Diff Screenshot](./screenshots/diff.png)
+
+---
+
+## ⚙️ Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/jaiteshg/AI-Code-Reviewer.git
+
+# Navigate to project
+cd codeflex-ai
+
+# Install dependencies
+npm install
+
+# Create environment file
+touch .env.local
+```
+
+Add your API key:
+
+```env
+GROQ_API_KEY=your_api_key_here
+```
+
+Run the project:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open in browser:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🧪 How It Works
 
-To learn more about Next.js, take a look at the following resources:
+1. Write or paste your code in the editor  
+2. Click **Analyze Code**  
+3. AI analyzes and returns:
+   - Bugs 🐞  
+   - Improvements ✨  
+   - Optimized code ✅  
+4. View differences using the Diff Viewer  
+5. Copy improved code instantly  
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🎯 Use Cases
 
-## Deploy on Vercel
+- Beginners learning coding  
+- Developers debugging code faster  
+- Improving code quality  
+- Understanding best practices  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🚀 Future Improvements
+
+- 💾 Save analysis history  
+- 🌐 Multi-language support  
+- 📊 Code quality scoring  
+- 🔐 User authentication  
+
+---
+
+## 🙌 Acknowledgements
+
+- Groq (AI inference)
+- Next.js (framework)
+- Monaco Editor (code editor)
+
+
+⭐ Don’t forget to star the repo if you found it useful!
