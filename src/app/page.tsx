@@ -11,7 +11,7 @@ export default function Home() {
 }`);
   const [result, setResult] = useState<{ bugs: string[]; improvements: string[]; fixedCode: string } | null>(null);
   const [loading, setLoading] = useState(false);
-
+  const [darkMode, setDarkMode] = useState(true);
   const [copied, setCopied] = useState(false);
 
   const copyToClipboard = async (text: string) => {
@@ -35,8 +35,21 @@ export default function Home() {
       };
 
   return (
-    <main className="min-h-screen bg-gray-900 text-white p-6">
-      <h1 className="text-2xl font-bold">AI Code Reviewer</h1>
+    <main
+        className={`min-h-screen p-6 ${
+          darkMode ? "bg-gray-900 text-white" : "bg-white text-black"
+        }`}
+      >      
+      <div className="flex justify-between items-center">
+        <h1 className="text-2xl font-bold">AI Code Reviewer</h1>
+
+        <button
+          onClick={() => setDarkMode(!darkMode)}
+          className="px-3 py-1 rounded bg-gray-800 text-white"
+        >
+          {darkMode ? "☀️ Light" : "🌙 Dark"}
+        </button>
+      </div>
 
       <CodeEditor code={code} setCode={setCode} />
 
@@ -51,7 +64,10 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
               
               {/* Bugs */}
-              <div className="p-4 bg-red-100 rounded-lg shadow">
+              <div className={`p-4  rounded-lg shadow ${ darkMode
+                  ? "bg-red-500/10 text-red-300 border border-red-500/20"
+                  : "bg-red-50 text-red-800 border border-red-200"}`}
+                >
                 <h2 className="font-bold text-red-800 mb-2">🐞 Bugs</h2>
                 <ul className="list-disc pl-5 space-y-1 text-sm text-red-900">
                   {result.bugs.map((bug: string, i: number) => (
@@ -61,7 +77,10 @@ export default function Home() {
               </div>
 
               {/* Improvements */}
-              <div className="p-4 bg-yellow-100 rounded-lg shadow">
+              <div className={`p-4  rounded-lg shadow ${ darkMode
+                    ? "bg-yellow-500/10 text-yellow-300 border border-yellow-500/20"
+                    : "bg-yellow-50 text-yellow-800 border border-yellow-200"}`}
+                >
                 <h2 className="font-bold text-yellow-800 mb-2">✨ Improvements</h2>
                 <ul className="list-disc pl-5 space-y-1 text-sm text-yellow-900">
                   {result.improvements.map((imp: string, i: number) => (
@@ -78,7 +97,7 @@ export default function Home() {
                   oldValue={code}
                   newValue={result.fixedCode}
                   splitView={true}
-                  useDarkTheme={true}
+                  useDarkTheme={darkMode}
                 />
               </div>
 
@@ -95,7 +114,9 @@ export default function Home() {
                   </button>
                 </div>
 
-                <pre className="bg-black text-green-400 p-3 rounded overflow-x-auto text-sm">
+                <pre className={`p-3 rounded overflow-x-auto text-sm ${
+                    darkMode ? "bg-black text-green-400" : "bg-gray-200 text-black"
+                  }`}>
                   {result.fixedCode}
                 </pre>
               </div>
