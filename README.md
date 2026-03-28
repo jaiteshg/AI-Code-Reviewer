@@ -2,7 +2,7 @@
 
 An AI-powered developer tool that analyzes code, detects bugs, suggests improvements, and generates optimized code in real time.
 
-🔗 **Live Demo:** https://your-vercel-link.vercel.app  
+🔗 **Live Demo:** https://ai-code-reviewer-gfelgibse-jaiteshgs-projects.vercel.app/
 📂 **GitHub Repo:** https://github.com/jaiteshg/AI-Code-Reviewer.git  
 
 ---
@@ -32,7 +32,7 @@ An AI-powered developer tool that analyzes code, detects bugs, suggests improvem
 ## 📸 Screenshots
 
 ### 🔹 Editor + Analysis
-![Editor Screenshot](./screenshots/editor.png)
+![Editor Screenshot](./screenshots/Editor.png)
 
 ### 🔹 Diff Viewer
 ![Diff Screenshot](./screenshots/diff.png)
