@@ -1,15 +1,15 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CodeEditor from "@/components/CodeEditor";
 import axios from "axios";
-import DiffViewer from "react-diff-viewer-continued";
 import Header from "@/components/Header";
 import AnalyzeButton from "@/components/AnalyzeButton";
 import BugsCard from "@/components/ResultCards/BugsCard";
 import ImprovementsCard from "@/components/ResultCards/ImprovementsCard";
 import DiffViewerCard from "@/components/ResultCards/DiffViewerCard";
 import FixedCodeCard from "@/components/ResultCards/FixedCodeCard";
+import HistoryPanel from "@/components/HistoryPanel";
 
 export default function Home() {
   const [code, setCode] = useState(`function hello() {
@@ -19,7 +19,20 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [darkMode, setDarkMode] = useState(true);
   const [copied, setCopied] = useState(false);
+  const [history, setHistory] = useState<any[]>([]);
 
+
+    useEffect(() => {
+      const saved = localStorage.getItem("code-history");
+      if (saved) {
+        setHistory(JSON.parse(saved));
+      }
+    }, []);
+
+  const handleSelectHistory = (item: any) => {
+  setCode(item.code);
+  setResult(item.result);
+  };  
   const copyToClipboard = async (text: string) => {
     await navigator.clipboard.writeText(text);
     setCopied(true);
@@ -30,8 +43,23 @@ export default function Home() {
         try {
           const res = await axios.post("/api/analyze", { code });
 
-          // 👇 parse JSON safely
+          //  parse JSON safely
           const parsed = JSON.parse(res.data.result);
+          //  create new history item
+          const newEntry = {
+            code,
+            result: parsed,
+            time: new Date().toLocaleString(),
+          };
+
+          //  update history
+          const updatedHistory = [newEntry, ...history].slice(0, 5); // keep last 5
+
+          setHistory(updatedHistory);
+
+          //  save to localStorage
+          localStorage.setItem("code-history", JSON.stringify(updatedHistory));
+
 
           setResult(parsed);
         } catch (err) {
@@ -48,6 +76,8 @@ export default function Home() {
       >
       <div className="max-w-5xl mx-auto space-y-6">        
       <Header darkMode={darkMode} setDarkMode={setDarkMode} />
+
+      <HistoryPanel history={history} onSelect={handleSelectHistory} />
 
         <div className={`p-4 rounded-xl shadow ${
           darkMode ? "bg-gray-900" : "bg-white"
