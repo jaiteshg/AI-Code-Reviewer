@@ -2,9 +2,6 @@
 
 An AI-powered developer tool that analyzes code, detects bugs, suggests improvements, and generates optimized code in real time.
 
-🔗 **Live Demo:** https://ai-code-reviewer-gfelgibse-jaiteshgs-projects.vercel.app/
-📂 **GitHub Repo:** https://github.com/jaiteshg/AI-Code-Reviewer.git  
-
 ---
 
 ## 🧠 Features
@@ -97,14 +94,7 @@ http://localhost:3000
 
 ---
 
-## 🚀 Future Improvements
 
-- 💾 Save analysis history  
-- 🌐 Multi-language support  
-- 📊 Code quality scoring  
-- 🔐 User authentication  
-
----
 
 ## 🙌 Acknowledgements
 
