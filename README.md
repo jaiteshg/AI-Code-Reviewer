@@ -43,7 +43,7 @@ An AI-powered developer tool that analyzes code, detects bugs, suggests improvem
 git clone https://github.com/jaiteshg/AI-Code-Reviewer.git
 
 # Navigate to project
-cd codeflex-ai
+cd ai-code-reviwer
 
 # Install dependencies
 npm install
