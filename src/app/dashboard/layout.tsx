@@ -1,10 +1,8 @@
 "use client";
 
-import { useSession, signIn } from "next-auth/react";
-import { useEffect } from "react";
-import Link from "next/link";
-import { signOut } from "next-auth/react";
-import { ReactNode } from "react";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { useEffect, ReactNode } from "react";
+import Sidebar from "@/components/Sidebar";
 
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   const { status } = useSession();
@@ -15,28 +13,34 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     }
   }, [status]);
 
-  if (status === "loading") return <p>Loading...</p>;
+  if (status === "loading") {
+    return (
+      <div className="flex items-center justify-center h-screen bg-gray-900 text-white">
+        <p className="animate-pulse">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="flex h-screen">
-      <aside className="w-64 bg-gray-900 text-white p-5">
-        <h2 className="text-xl font-bold mb-6">ai-code-reviwer</h2>
+      
+      {/* Sidebar */}
+      <div className="flex flex-col justify-between">
+        <Sidebar />
 
-        <nav className="flex flex-col gap-4">
-          <Link href="/dashboard">Dashboard</Link>
-          <Link href="/dashboard/editor">Editor</Link>
-          <Link href="/dashboard/history">History</Link>
-        </nav>
-
+        {/* Logout button */}
         <button
           onClick={() => signOut()}
-          className="mt-10 bg-red-500 px-3 py-2 rounded"
+          className="m-4 bg-red-500 hover:bg-red-600 px-3 py-2 rounded transition"
         >
           Logout
         </button>
-      </aside>
+      </div>
 
-      <main className="flex-1 p-6 bg-gray-900 text-white">{children}</main>
+      {/* Main content */}
+      <main className="flex-1 p-6 bg-gray-900 text-white overflow-y-auto">
+        {children}
+      </main>
     </div>
   );
 }

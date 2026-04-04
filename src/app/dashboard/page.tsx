@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Code, History } from "lucide-react";
 
 export default function DashboardPage() {
   return (
@@ -13,9 +14,12 @@ export default function DashboardPage() {
 
         <Link
           href="/dashboard/editor"
-          className="rounded-xl border border-gray-700 p-6 bg-gray-800 shadow hover:shadow-lg transition"
+          className="rounded-xl border border-gray-700 p-6 bg-gray-800 shadow hover:shadow-lg hover:bg-gray-700 transition"
         >
-          <h2 className="text-xl font-semibold">Open Editor</h2>
+          <h2 className="text-xl font-semibold flex items-center gap-2">
+            <Code size={20} />
+            Open Editor
+          </h2>
           <p className="text-sm text-gray-300 mt-2">
             Analyze your code using AI
           </p>
@@ -23,9 +27,12 @@ export default function DashboardPage() {
 
         <Link
           href="/dashboard/history"
-          className="rounded-xl border border-gray-700 p-6 bg-gray-800  shadow hover:shadow-lg transition"
+          className="rounded-xl border border-gray-700 p-6 bg-gray-800  shadow hover:shadow-lg hover:bg-gray-700 transition"
         >
-          <h2 className="text-xl font-semibold">View History</h2>
+          <h2 className="text-xl font-semibold flex items-center gap-2">
+            <History size={20} />
+            View History
+          </h2>
           <p className="text-sm text-gray-300 mt-2">
             Check your past code reviews
           </p>
