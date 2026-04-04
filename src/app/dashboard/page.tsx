@@ -14,7 +14,7 @@ export default function DashboardPage() {
 
         <Link
           href="/dashboard/editor"
-          className="rounded-xl border border-gray-700 p-6 bg-gray-800 shadow hover:shadow-lg hover:bg-gray-700 transition"
+          className="rounded-xl border border-gray-700 p-6 bg-gray-800 shadow hover:shadow-lg hover:bg-gray-700 hover:scale-[1.02] transition"
         >
           <h2 className="text-xl font-semibold flex items-center gap-2">
             <Code size={20} />
@@ -27,7 +27,7 @@ export default function DashboardPage() {
 
         <Link
           href="/dashboard/history"
-          className="rounded-xl border border-gray-700 p-6 bg-gray-800  shadow hover:shadow-lg hover:bg-gray-700 transition"
+          className="rounded-xl border border-gray-700 p-6 bg-gray-800  shadow hover:shadow-lg hover:bg-gray-700 hover:scale-[1.02] transition"
         >
           <h2 className="text-xl font-semibold flex items-center gap-2">
             <History size={20} />

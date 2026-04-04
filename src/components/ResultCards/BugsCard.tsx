@@ -15,7 +15,7 @@ export default function BugsCard({ bugs, darkMode }: BugsCardProps) {
       <h2 className="font-bold mb-2">🐞 Bugs</h2>
 
       <ul className="list-disc pl-5 space-y-1 text-sm">
-        {bugs.map((bug, i) => (
+        {(bugs || []).map((bug, i) => (
           <li key={i}>{bug}</li>
         ))}
       </ul>

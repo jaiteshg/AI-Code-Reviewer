@@ -21,7 +21,7 @@ export default function HistoryPanel({ history, onSelect }: HistoryPanelProps) {
       )}
 
       <div className="space-y-2">
-        {history.map((item, i) => (
+        {(history || []).map((item, i) => (
           <div
             key={i}
             onClick={() => onSelect(item)}

@@ -27,14 +27,6 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
       {/* Sidebar */}
       <div className="flex flex-col justify-between">
         <Sidebar />
-
-        {/* Logout button */}
-        <button
-          onClick={() => signOut()}
-          className="m-4 bg-red-500 hover:bg-red-600 px-3 py-2 rounded transition"
-        >
-          Logout
-        </button>
       </div>
 
       {/* Main content */}
