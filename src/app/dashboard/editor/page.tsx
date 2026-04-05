@@ -38,9 +38,9 @@ export default function EditorPage() {
 
     // Call your backend API to analyze the code
     const response = await axios.post("/api/analyze", { code });
-    const parsed = typeof response.data === "string"
-    ? JSON.parse(response.data)
-    : response.data;;
+    const parsed = typeof response.data.result === "string"
+    ? JSON.parse(response.data.result)
+    : response.data.result;
 
     setResult(parsed);
 
