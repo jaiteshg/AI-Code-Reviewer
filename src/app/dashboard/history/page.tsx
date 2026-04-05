@@ -22,11 +22,28 @@ export default function HistoryPage() {
   localStorage.setItem("selected-history", JSON.stringify(item));
   router.push("/dashboard/editor");
 };
+  const handleDelete = (index: number) => {
+    const updated = history.filter((_, i) => i !== index);
+    setHistory(updated);
+    localStorage.setItem("code-history", JSON.stringify(updated));
+  };
 
   return (
     <div>
       <h1 className="text-2xl font-bold mb-4">History</h1>
-      <HistoryPanel history={history} onSelect={handleSelect} />
+      <button
+        onClick={() => {
+          localStorage.removeItem("code-history");
+          setHistory([]);
+        }}
+        className="text-red-500 text-sm mb-3"
+      >
+        Clear All
+      </button>
+      <HistoryPanel 
+        history={history} 
+        onSelect={handleSelect} 
+        onDelete={handleDelete} />
     </div>
   );
 }
