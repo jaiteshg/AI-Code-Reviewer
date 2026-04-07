@@ -31,6 +31,7 @@ export default function EditorPage() {
 }, []);
 
   const analyzeCode = async () => {
+    
     setLoading(true);
     try {
     const saved = localStorage.getItem("code-history");
@@ -38,9 +39,8 @@ export default function EditorPage() {
 
     // Call your backend API to analyze the code
     const response = await axios.post("/api/analyze", { code });
-    const parsed = typeof response.data.result === "string"
-    ? JSON.parse(response.data.result)
-    : response.data.result;
+
+    const parsed = response.data;
 
     setResult(parsed);
 
@@ -73,6 +73,7 @@ export default function EditorPage() {
       <CodeEditor code={code} setCode={setCode} />
 
       <AnalyzeButton loading={loading} onClick={analyzeCode} />
+      
 
       {result && (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">

@@ -1,5 +1,10 @@
+type Improvement = {
+  suggestion: string;
+  benefit: string;
+};
+
 type ImprovementsCardProps = {
-  improvements: string[];
+  improvements: Improvement[];
   darkMode: boolean;
 };
 
@@ -14,11 +19,18 @@ export default function ImprovementsCard({ improvements, darkMode }: Improvement
     >
       <h2 className="font-bold mb-2">✨ Improvements</h2>
 
-      <ul className="list-disc pl-5 space-y-1 text-sm">
-        {(improvements || []).map((imp, i) => (
-          <li key={i}>{imp}</li>
-        ))}
-      </ul>
+      {(improvements || []).length === 0 ? (
+        <p className="text-sm text-gray-400">No improvements needed 🚀</p>
+      ) : (
+        <ul className="list-disc pl-5 space-y-1 text-sm">
+          {improvements.map((item, i) => (
+            <li key={i}>
+              <span className="font-semibold">{item.suggestion}</span>
+              <p className="text-xs text-gray-400">{item.benefit}</p>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }
