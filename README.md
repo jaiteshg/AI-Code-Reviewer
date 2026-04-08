@@ -1,38 +1,48 @@
-# 🚀 AI Code Reviewer & Bug Fixer
+# ⚡ AI Code Reviewer
 
-An AI-powered developer tool that analyzes code, detects bugs, suggests improvements, and generates optimized code in real time.
+An AI-powered developer tool that analyzes your code, detects bugs, suggests improvements, and generates optimized code in real time — all inside a clean, modern interface.
+
+---
+
+## 🔥 Live Demo
+
+👉 https://ai-code-reviewer-nine-ochre.vercel.app
 
 ---
 
 ## 🧠 Features
 
-- 📝 Code Editor (Monaco Editor)
-- 🤖 AI Code Analysis (Groq LLM)
-- 🐞 Detects bugs in code
-- ✨ Suggests improvements
-- ⚡ Code Diff Viewer (before vs after)
-- 📋 Copy Fixed Code with one click
-- 🌙 Dark / Light Mode Toggle
-- 🎯 Clean and responsive UI
+- 📝 **Interactive Code Editor** (Monaco Editor)
+- 🤖 **AI-Powered Code Analysis** (Groq + LLaMA)
+- 🐞 **Bug Detection** with severity & fixes
+- ✨ **Smart Improvements** with explanations
+- ⚡ **Code Diff Viewer** (Before vs After)
+- ✅ **Auto Fixed Code Generation**
+- 📋 **Copy to Clipboard** (1-click)
+- 🕒 **History Tracking** (local storage)
+- 🔐 **Authentication** (Google OAuth via NextAuth)
+- 🎨 **Modern UI** (Dark Theme, responsive design)
 
 ---
 
 ## 🖥️ Tech Stack
 
-- **Frontend:** Next.js, React, Tailwind CSS  
+- **Frontend:** Next.js 14 (App Router), React, Tailwind CSS  
 - **Editor:** Monaco Editor  
-- **AI Integration:** Groq API (LLaMA models)  
+- **Authentication:** NextAuth.js (Google OAuth)  
+- **AI Integration:** Groq API (LLaMA 3.1)  
 - **Diff Viewer:** react-diff-viewer-continued  
+- **State:** React Hooks + LocalStorage  
 
 ---
 
 ## 📸 Screenshots
 
 ### 🔹 Editor + Analysis
-![Editor Screenshot](./screenshots/Editor.png)
+![Editor](./screenshots/Editor.png)
 
 ### 🔹 Diff Viewer
-![Diff Screenshot](./screenshots/diff.png)
+![Diff](./screenshots/diff.png)
 
 ---
 
@@ -43,19 +53,22 @@ An AI-powered developer tool that analyzes code, detects bugs, suggests improvem
 git clone https://github.com/jaiteshg/AI-Code-Reviewer.git
 
 # Navigate to project
-cd ai-code-reviwer
+cd ai-code-reviewer
 
 # Install dependencies
-npm install
-
-# Create environment file
-touch .env.local
+npm install 
 ```
 
-Add your API key:
+Create a .env.local file:
 
 ```env
-GROQ_API_KEY=your_api_key_here
+GROQ_API_KEY=your_groq_api_key
+
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+NEXTAUTH_SECRET=your_random_secret
+NEXTAUTH_URL=http://localhost:3000GROQ_API_KEY=your_api_key_here
 ```
 
 Run the project:
@@ -95,12 +108,17 @@ http://localhost:3000
 ---
 
 
-
 ## 🙌 Acknowledgements
 
 - Groq (AI inference)
 - Next.js (framework)
 - Monaco Editor (code editor)
+- NextAuth (authentication)
 
+---
+## ⭐ Support
+ Don’t forget to star the repo if you found it useful!
 
-⭐ Don’t forget to star the repo if you found it useful!
+---
+## 📬 Connect
+Feel free to reach out or contribute to improve this project 🚀
